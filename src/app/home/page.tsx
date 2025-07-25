@@ -1,7 +1,9 @@
+import { Title } from "@/components/SectionTitle"
+
 const Home = () => {
   return (
     <>
-      <div>this is home</div>
+      <Title title="気持ちを書いてAIと一緒に整理してみましょう" />
     </>
   )
 }
