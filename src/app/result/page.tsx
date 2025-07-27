@@ -1,5 +1,6 @@
 import { Card } from "@/components/card/Card"
 import { CardTitle } from "@/components/card/CardTitle"
+import { MoodIconBox } from "@/components/card/MoodIconBox"
 import { PageTitle } from "@/components/PageTitle"
 
 const Result = () => {
