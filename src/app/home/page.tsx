@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
-import { Card } from "@/components/Card"
+import { Card } from "@/components/card/Card"
 import { MoodButton } from "@/components/MoodButton"
 import { PageTitle } from "@/components/PageTitle"
 import { SectionTitle } from "@/components/SectionTitle"

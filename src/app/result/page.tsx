@@ -1,4 +1,5 @@
-import { Card } from "@/components/Card"
+import { Card } from "@/components/card/Card"
+import { CardTitle } from "@/components/card/CardTitle"
 import { PageTitle } from "@/components/PageTitle"
 
 const Result = () => {
@@ -9,9 +10,15 @@ const Result = () => {
         <p className="text-gray-600">あなたの気持ちを整理しました</p>
       </div>
       <div className="flex flex-col gap-8">
-        <Card>あなたの気持ち</Card>
-        <Card>AIからのアドバイス</Card>
-        <Card>おすすめのアクション</Card>
+        <Card>
+          <CardTitle title="あなたの気持ち" color="text-gray-800" />
+        </Card>
+        <Card>
+          <CardTitle title="AIからのアドバイス" color="text-purple-800" />
+        </Card>
+        <Card>
+          <CardTitle title="おすすめのアクション" color="text-gray-800" />
+        </Card>
       </div>
     </div>
   )
