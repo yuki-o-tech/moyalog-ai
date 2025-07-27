@@ -28,7 +28,7 @@ const Home = () => {
 
       setTimeout(() => {
         setIsLoading(false)
-        router.push(`/advice?${params}`)
+        router.push(`/result?${params}`)
       }, 2000)
     }
   }
