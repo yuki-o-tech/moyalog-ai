@@ -8,27 +8,33 @@ import { PageTitle } from "@/components/PageTitle"
 import { SectionTitle } from "@/components/SectionTitle"
 import { Button } from "@/components/Button"
 import { moods } from "@/data/moods"
+import { useMoodStore } from "@/store/moodStore"
+import { LucideIcon } from "lucide-react"
 
 const Home = () => {
   const router = useRouter()
-  const [selectedMood, setSelectedMood] = useState<string | null>(null)
+  const { setMood } = useMoodStore()
+  const [selectedMood, setSelectedMood] = useState<{
+    icon: LucideIcon
+    color: string
+    bgColor: string
+  } | null>(null)
   const [input, setInput] = useState("")
-  const [isDisabled, setIsDisabled] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async () => {
     if (input.trim() && selectedMood) {
       setIsLoading(true)
-      setIsDisabled(true)
-      const params = new URLSearchParams({
-        content: input,
-        mood: selectedMood,
-        timestamp: new Date().toISOString(),
-      }).toString()
+
+      setMood(
+        input,
+        selectedMood.icon,
+        selectedMood.color,
+        selectedMood.bgColor
+      )
 
       setTimeout(() => {
-        setIsLoading(false)
-        router.push(`/result?${params}`)
+        router.push("/result")
       }, 2000)
     }
   }
@@ -45,8 +51,14 @@ const Home = () => {
             <MoodButton
               key={mood.id}
               mood={mood}
-              selected={selectedMood === mood.id}
-              onClick={() => setSelectedMood(mood.id)}
+              selected={selectedMood?.icon === mood.icon}
+              onClick={() =>
+                setSelectedMood({
+                  icon: mood.icon,
+                  color: mood.color,
+                  bgColor: mood.bgColor,
+                })
+              }
               disabled={isLoading}
             />
           ))}
